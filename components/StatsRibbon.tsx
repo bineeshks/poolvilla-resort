@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 export default function StatsRibbon() {
   const stats = [
-    { number: "8", label: "Private Villas" },
-    { number: "4.9", label: "Star Rating" },
+    { number: "2", label: "Private Villas" },
+    { number: "2", label: "Rooms per Villa" },
     { number: "100%", label: "Private Pools" },
     { number: "24/7", label: "Butler Service" },
   ];

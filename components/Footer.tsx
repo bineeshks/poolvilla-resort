@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import LogoSVG from './LogoSVG';
+import Image from 'next/image';
+import logoImg from '@/app/gallery/logo.png';
 
 export default function Footer() {
   return (
@@ -9,12 +10,14 @@ export default function Footer() {
           
           {/* Brand Block */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-3">
-              <LogoSVG size={40} color="#C9A96E" />
-              <div className="flex flex-col text-warm-white">
-                <span className="font-display text-2xl tracking-wide uppercase leading-none">Sitharom</span>
-                <span className="text-[10px] tracking-[0.25em] uppercase opacity-80 mt-1 text-gold">Pool Villa</span>
-              </div>
+            <Link href="/" className="flex items-center">
+              <Image 
+                src={logoImg} 
+                alt="Sitharom Pool Villa Logo" 
+                width={240} 
+                height={90} 
+                className="h-[90px] w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-text-muted leading-relaxed font-light">
               Experience the pinnacle of tropical luxury at our exclusive private pool villas. 24/7 personalized service, lush gardens, and ultimate privacy await.
@@ -50,7 +53,7 @@ export default function Footer() {
               <p>123 Tropical Way, Bali 80361, Indonesia</p>
               <a href="tel:+1234567890" className="hover:text-gold transition-colors">+1 (234) 567-890</a>
               <a href="mailto:info@sitharom.com" className="hover:text-gold transition-colors">info@sitharom.com</a>
-              <a href="https://wa.me/1234567890" className="text-clay-light hover:text-clay transition-colors mt-2 uppercase tracking-wider font-medium text-xs">
+              <a href="https://wa.me/919000000000" className="text-clay-light hover:text-clay transition-colors mt-2 uppercase tracking-wider font-medium text-xs">
                 Chat on WhatsApp
               </a>
             </div>

@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import LogoSVG from './LogoSVG';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import logoImg from '@/app/gallery/logo.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,12 +46,15 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 relative z-50">
-          <LogoSVG size={40} color={isSolid ? '#B5451B' : '#FFFDF9'} className="transition-colors duration-500" />
-          <div className="flex flex-col">
-            <span className="font-display text-2xl tracking-wide uppercase leading-none">Sitharom</span>
-            <span className="text-[10px] tracking-[0.25em] uppercase opacity-80 mt-1 font-medium">Pool Villa</span>
-          </div>
+        <Link href="/" className="flex items-center relative z-50">
+          <Image 
+            src={logoImg} 
+            alt="Sitharom Pool Villa" 
+            width={240} 
+            height={90} 
+            className="h-[90px] w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
