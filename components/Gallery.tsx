@@ -70,7 +70,7 @@ export default function Gallery() {
   }, [selectedImage]);
 
   return (
-    <section className="py-24 bg-cream overflow-hidden" id="gallery">
+    <section className="py-24 bg-cream dark:bg-[#120E0A] overflow-hidden transition-colors duration-500" id="gallery">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -81,9 +81,9 @@ export default function Gallery() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-[10px] tracking-[0.25em] uppercase text-clay mb-4 block">Visual Journey</span>
-            <h2 className="text-4xl md:text-5xl font-display text-villa-dark">
-              Glimpse of <em className="text-clay italic">Paradise</em>
+            <span className="text-[10px] tracking-[0.25em] uppercase text-clay dark:text-gold mb-4 block transition-colors duration-500">Visual Journey</span>
+            <h2 className="text-4xl md:text-5xl font-display text-villa-dark dark:text-sand transition-colors duration-500">
+              Glimpse of <em className="text-clay dark:text-gold italic transition-colors duration-500">Paradise</em>
             </h2>
           </motion.div>
           
@@ -95,16 +95,16 @@ export default function Gallery() {
             className="flex items-center gap-6"
           >
             <div className="hidden md:flex gap-4">
-              <button onClick={() => scroll('left')} className="p-3 rounded-full border border-clay text-clay hover:bg-clay hover:text-white transition-colors" aria-label="Previous image">
+              <button onClick={() => scroll('left')} className="p-3 rounded-full border border-clay dark:border-gold text-clay dark:text-gold hover:bg-clay dark:hover:bg-gold hover:text-white dark:hover:text-villa-dark transition-colors duration-500" aria-label="Previous image">
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <button onClick={() => scroll('right')} className="p-3 rounded-full border border-clay text-clay hover:bg-clay hover:text-white transition-colors" aria-label="Next image">
+              <button onClick={() => scroll('right')} className="p-3 rounded-full border border-clay dark:border-gold text-clay dark:text-gold hover:bg-clay dark:hover:bg-gold hover:text-white dark:hover:text-villa-dark transition-colors duration-500" aria-label="Next image">
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
             <Link 
               href="/gallery" 
-              className="text-xs tracking-widest uppercase border-b border-text-muted pb-1 hover:text-clay hover:border-clay transition-colors"
+              className="text-xs tracking-widest uppercase border-b border-text-muted dark:border-sand/40 pb-1 text-text-muted dark:text-sand/70 hover:text-clay dark:hover:text-gold hover:border-clay dark:hover:border-gold transition-colors duration-500"
             >
               View Full Gallery
             </Link>
@@ -122,7 +122,7 @@ export default function Gallery() {
             {images.map((img, idx) => (
               <motion.div 
                 key={img.id}
-                className="relative group overflow-hidden bg-sand flex-none w-[85vw] md:w-[400px] lg:w-[500px] h-[400px] md:h-[500px] snap-center cursor-pointer"
+                className="relative group overflow-hidden bg-sand dark:bg-[#18130E] flex-none w-[85vw] md:w-[400px] lg:w-[500px] h-[400px] md:h-[500px] snap-center cursor-pointer"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -157,7 +157,7 @@ export default function Gallery() {
                 key={idx}
                 className={cn(
                   "w-1.5 h-1.5 rounded-full transition-all duration-300",
-                  idx === activeIndex ? "bg-clay w-4" : "bg-clay/30"
+                  idx === activeIndex ? "bg-clay dark:bg-gold w-4" : "bg-clay/30 dark:bg-gold/30"
                 )}
               />
             ))}

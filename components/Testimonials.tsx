@@ -48,7 +48,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-24 bg-cream overflow-hidden">
+    <section className="py-24 bg-cream dark:bg-[#120E0A] overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -59,9 +59,9 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-[10px] tracking-[0.25em] uppercase text-clay mb-4 block">Guest Memoirs</span>
-          <h2 className="text-4xl md:text-5xl font-display text-villa-dark">
-            Words of <em className="text-clay italic">Elegance</em>
+          <span className="text-[10px] tracking-[0.25em] uppercase text-clay dark:text-gold mb-4 block transition-colors duration-500">Guest Memoirs</span>
+          <h2 className="text-4xl md:text-5xl font-display text-villa-dark dark:text-sand transition-colors duration-500">
+            Words of <em className="text-clay dark:text-gold italic transition-colors duration-500">Elegance</em>
           </h2>
         </motion.div>
 
@@ -71,8 +71,8 @@ export default function Testimonials() {
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          <div className="relative bg-warm-white border border-sand p-10 md:p-16 rounded-sm shadow-sm min-h-[400px] md:min-h-[350px] flex items-center justify-center mx-4 md:mx-12">
-            <Quote className="absolute top-8 left-8 text-sand-dark opacity-30 w-24 h-24 rotate-180 pointer-events-none" />
+          <div className="relative bg-warm-white dark:bg-[#1C1610] border border-sand dark:border-gold/10 p-10 md:p-16 rounded-sm shadow-sm dark:shadow-none min-h-[400px] md:min-h-[350px] flex items-center justify-center mx-4 md:mx-12 transition-colors duration-500">
+            <Quote className="absolute top-8 left-8 text-sand-dark dark:text-gold/10 opacity-30 w-24 h-24 rotate-180 pointer-events-none transition-colors duration-500" />
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -87,13 +87,13 @@ export default function Testimonials() {
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
                 </div>
                 
-                <p className="font-display italic text-2xl md:text-3xl text-text-mid leading-relaxed mb-10 max-w-3xl">
+                <p className="font-display italic text-2xl md:text-3xl text-text-mid dark:text-sand/90 leading-relaxed mb-10 max-w-3xl transition-colors duration-500">
                   &quot;{testimonials[currentIndex].quote}&quot;
                 </p>
                 
                 <div className="flex flex-col items-center">
-                  <span className="block font-display text-xl text-villa-dark">{testimonials[currentIndex].name}</span>
-                  <span className="block text-xs uppercase tracking-widest text-text-muted mt-2">{testimonials[currentIndex].location}</span>
+                  <span className="block font-display text-xl text-villa-dark dark:text-sand transition-colors duration-500">{testimonials[currentIndex].name}</span>
+                  <span className="block text-xs uppercase tracking-widest text-text-muted dark:text-sand/60 mt-2 transition-colors duration-500">{testimonials[currentIndex].location}</span>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -102,7 +102,7 @@ export default function Testimonials() {
           {/* Navigation Buttons */}
           <button 
             onClick={handlePrev}
-            className="absolute top-1/2 -translate-y-1/2 left-0 md:left-4 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-text-muted hover:text-clay hover:border-clay border border-transparent transition-all z-20"
+            className="absolute top-1/2 -translate-y-1/2 left-0 md:left-4 w-12 h-12 bg-white dark:bg-[#1C1610] rounded-full shadow-md flex items-center justify-center text-text-muted dark:text-sand hover:text-clay dark:hover:text-gold hover:border-clay dark:hover:border-gold border border-transparent dark:border-gold/20 transition-all z-20"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={24} />
@@ -110,7 +110,7 @@ export default function Testimonials() {
           
           <button 
             onClick={handleNext}
-            className="absolute top-1/2 -translate-y-1/2 right-0 md:right-4 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-text-muted hover:text-clay hover:border-clay border border-transparent transition-all z-20"
+            className="absolute top-1/2 -translate-y-1/2 right-0 md:right-4 w-12 h-12 bg-white dark:bg-[#1C1610] rounded-full shadow-md flex items-center justify-center text-text-muted dark:text-sand hover:text-clay dark:hover:text-gold hover:border-clay dark:hover:border-gold border border-transparent dark:border-gold/20 transition-all z-20"
             aria-label="Next testimonial"
           >
             <ChevronRight size={24} />
@@ -127,7 +127,7 @@ export default function Testimonials() {
                 }}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
-                  idx === currentIndex ? "w-8 bg-clay" : "w-2 bg-clay/30"
+                  idx === currentIndex ? "w-8 bg-clay dark:bg-gold" : "w-2 bg-clay/30 dark:bg-gold/30"
                 )}
                 aria-label={`Go to testimonial ${idx + 1}`}
               />

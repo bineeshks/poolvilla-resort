@@ -5,7 +5,11 @@ import Villas from '@/components/Villas';
 import Amenities from '@/components/Amenities';
 import Gallery from '@/components/Gallery';
 import Experience from '@/components/Experience';
+import WhyWayanad from '@/components/WhyWayanad';
+import NearbyAttractions from '@/components/NearbyAttractions';
+import ExperiencePackages from '@/components/ExperiencePackages';
 import Testimonials from '@/components/Testimonials';
+import FAQ from '@/components/FAQ';
 import BookingForm from '@/components/BookingForm';
 
 export default function Home() {
@@ -18,7 +22,11 @@ export default function Home() {
       <Amenities />
       <Gallery />
       <Experience />
+      <WhyWayanad />
+      <NearbyAttractions />
+      <ExperiencePackages />
       <Testimonials />
+      <FAQ />
       <BookingForm />
     </main>
   );

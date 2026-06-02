@@ -4,7 +4,7 @@ import logoImg from '@/app/gallery/logo.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-villa-dark text-sand pt-20 pb-8">
+    <footer className="bg-[#161917] text-sand pt-20 pb-8 border-t border-gold/10">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -16,7 +16,8 @@ export default function Footer() {
                 alt="Sitharom Pool Villa Logo" 
                 width={240} 
                 height={90} 
-                className="h-[90px] w-auto object-contain"
+                className="h-[90px] w-auto object-contain dark:brightness-[1.15]"
+                priority
               />
             </Link>
             <p className="text-sm text-text-muted leading-relaxed font-light">
@@ -73,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-text-muted/30 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-text-muted">
+        <div className="pt-8 border-t border-text-muted/20 dark:border-gold/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-text-muted">
           <p>&copy; {new Date().getFullYear()} Sitharom Pool Villa. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-warm-white transition-colors">Privacy Policy</Link>

@@ -25,7 +25,7 @@ const villas = [
 
 export default function Villas() {
   return (
-    <section className="py-24 bg-sand relative" id="villas">
+    <section className="py-24 bg-sand dark:bg-[#18130E] relative transition-colors duration-500" id="villas">
       <div className="container mx-auto px-6">
         
         {/* Section Header */}
@@ -36,9 +36,9 @@ export default function Villas() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-[10px] tracking-[0.25em] uppercase text-clay mb-4 block">Our Accommodations</span>
-          <h2 className="text-4xl md:text-5xl font-display text-villa-dark">
-            Your Private <em className="text-clay italic">Sanctuary</em>
+          <span className="text-[10px] tracking-[0.25em] uppercase text-clay dark:text-gold mb-4 block transition-colors duration-500">Our Accommodations</span>
+          <h2 className="text-4xl md:text-5xl font-display text-villa-dark dark:text-sand transition-colors duration-500">
+            Your Private <em className="text-clay dark:text-gold italic transition-colors duration-500">Sanctuary</em>
           </h2>
         </motion.div>
 
@@ -47,7 +47,7 @@ export default function Villas() {
           {villas.map((villa, idx) => (
             <motion.div 
               key={villa.id} 
-              className="group relative bg-cream overflow-hidden flex flex-col h-[500px]"
+              className="group relative bg-cream dark:bg-[#120E0A] border border-transparent dark:border-gold/10 overflow-hidden flex flex-col h-[500px] transition-colors duration-500"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -63,18 +63,18 @@ export default function Villas() {
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute top-4 right-4 bg-cream/90 backdrop-blur-sm px-3 py-1 text-[10px] tracking-widest uppercase font-medium text-clay shadow-sm z-10">
+                <div className="absolute top-4 right-4 bg-cream/90 dark:bg-[#120E0A]/90 backdrop-blur-sm px-3 py-1 text-[10px] tracking-widest uppercase font-medium text-clay dark:text-gold shadow-sm z-10 transition-colors duration-500">
                   {villa.tag}
                 </div>
               </div>
 
               {/* Info Container */}
-              <div className="absolute bottom-0 left-0 w-full bg-cream transform transition-transform duration-500 ease-in-out p-6 pt-5">
+              <div className="absolute bottom-0 left-0 w-full bg-cream dark:bg-[#120E0A] transform transition-transform duration-500 ease-in-out p-6 pt-5">
                 <div className="flex justify-between items-end mb-4">
-                  <h3 className="font-display text-2xl text-villa-dark">{villa.name}</h3>
+                  <h3 className="font-display text-2xl text-villa-dark dark:text-sand transition-colors duration-500">{villa.name}</h3>
                   <div className="text-right">
-                    <span className="block text-sm text-text-muted mb-1">From</span>
-                    <span className="font-display text-xl text-clay">{villa.price}</span>
+                    <span className="block text-sm text-text-muted dark:text-sand/60 mb-1 transition-colors duration-500">From</span>
+                    <span className="font-display text-xl text-clay dark:text-gold transition-colors duration-500">{villa.price}</span>
                   </div>
                 </div>
                 
@@ -82,7 +82,7 @@ export default function Villas() {
                 <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden mt-4">
                   <Link 
                     href={`/villas#${villa.id}`}
-                    className="block w-full bg-villa-dark text-warm-white text-center py-3 text-xs tracking-widest uppercase hover:bg-clay transition-colors"
+                    className="block w-full bg-villa-dark dark:bg-gold text-warm-white dark:text-villa-dark text-center py-3 text-xs tracking-widest uppercase hover:bg-clay dark:hover:bg-gold/80 transition-colors duration-500"
                   >
                     View Details
                   </Link>
@@ -102,7 +102,7 @@ export default function Villas() {
         >
           <Link 
             href="/villas" 
-            className="inline-block border border-clay text-clay px-8 py-4 text-sm tracking-widest uppercase hover:bg-clay hover:text-warm-white transition-colors"
+            className="inline-block border border-clay dark:border-gold text-clay dark:text-gold px-8 py-4 text-sm tracking-widest uppercase hover:bg-clay dark:hover:bg-gold hover:text-warm-white dark:hover:text-villa-dark transition-colors duration-500"
           >
             View All Villas
           </Link>

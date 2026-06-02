@@ -4,8 +4,10 @@ import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import heroBg from '@/app/gallery/bg1.jpeg';
+import { useBooking } from '@/lib/BookingContext';
 
 export default function Hero() {
+  const { openBooking } = useBooking();
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -77,15 +79,16 @@ export default function Hero() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-6"
         >
-          <Link 
-            href="/#book" 
-            className="bg-clay text-warm-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-clay-light transition-all border border-clay hover:border-clay-light"
+          <button 
+            onClick={() => openBooking()}
+            className="relative overflow-hidden bg-clay text-warm-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-clay-light hover:shadow-[0_4px_20px_rgba(181,69,27,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300 border border-clay hover:border-clay-light group flex items-center justify-center"
           >
-            Reserve Your Villa
-          </Link>
+            <span className="relative z-10">Reserve Your Villa</span>
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer-sweep pointer-events-none" />
+          </button>
           <Link 
             href="/villas" 
-            className="bg-transparent text-warm-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-warm-white hover:text-villa-dark transition-all border border-warm-white/50"
+            className="relative overflow-hidden bg-transparent text-warm-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-warm-white hover:text-villa-dark hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-300 border border-warm-white/50 hover:shadow-[0_4px_15px_rgba(255,253,249,0.15)] flex items-center justify-center"
           >
             Explore Villas
           </Link>

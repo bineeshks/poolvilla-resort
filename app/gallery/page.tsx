@@ -3,13 +3,13 @@ import Image from 'next/image';
 import img1 from './img1.jpeg';
 
 export const metadata = {
-  title: "Gallery | Sitharom Pool Villa",
-  description: "Take a visual journey through Sitharom Pool Villa. View our stunning private pools, elegant interiors, and lush surroundings.",
+  title: "Gallery | Sitharom Resort Wayanad",
+  description: "Take a visual journey through Sitharom Resort in Wayanad, Kerala. View our stunning 2-bedroom private pool villas, elegant interiors, and lush rainforest surroundings.",
 };
 
 export default function GalleryPage() {
   return (
-    <main className="bg-cream">
+    <main className="bg-cream dark:bg-[#120E0A] transition-colors duration-500">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] md:h-[70vh] flex flex-col justify-center items-center overflow-hidden">
         <Image 

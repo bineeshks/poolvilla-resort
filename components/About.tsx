@@ -7,7 +7,7 @@ import aboutImg from '@/app/gallery/img2.jpeg';
 
 export default function About() {
   return (
-    <section className="py-24 md:py-32 bg-cream text-villa-dark overflow-hidden">
+    <section className="py-24 md:py-32 bg-cream dark:bg-[#120E0A] text-villa-dark dark:text-sand overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
@@ -28,19 +28,19 @@ export default function About() {
                 className="object-cover rounded-t-full"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute -inset-4 border border-clay/30 rounded-t-full -z-10" />
+              <div className="absolute -inset-4 border border-clay/30 dark:border-gold/30 rounded-t-full -z-10 transition-colors duration-500" />
             </div>
 
             {/* Floating Badge */}
             <motion.div 
-              className="absolute -bottom-6 -right-6 md:right-10 bg-clay text-warm-white rounded-full w-32 h-32 flex flex-col items-center justify-center text-center shadow-xl z-20"
+              className="absolute -bottom-6 -right-6 md:right-10 bg-clay dark:bg-gold text-warm-white dark:text-villa-dark rounded-full w-32 h-32 flex flex-col items-center justify-center text-center shadow-xl z-20 transition-colors duration-500"
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
             >
-              <span className="font-display text-3xl mb-1">7★</span>
-              <span className="text-[10px] tracking-widest uppercase font-light px-4 leading-tight">Luxury Rating</span>
+              <span className="font-display text-3xl mb-1">5.0★</span>
+              <span className="text-[10px] tracking-widest uppercase font-light px-4 leading-tight">Google Rated</span>
             </motion.div>
           </motion.div>
 
@@ -52,24 +52,24 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <span className="text-[10px] tracking-[0.25em] uppercase text-clay mb-6">Welcome to Sitharom</span>
+            <span className="text-[10px] tracking-[0.25em] uppercase text-clay dark:text-gold mb-6 transition-colors duration-500">Welcome to Sitharom, Wayanad</span>
             <h2 className="text-4xl md:text-5xl font-display leading-tight mb-8">
-              A Private Paradise, <br />
-              Crafted for <em className="text-clay italic">You</em>
+              A Private Rainforest <br />
+              Sanctuary in <em className="text-clay dark:text-gold italic transition-colors duration-500">Wayanad</em>
             </h2>
             
-            <div className="space-y-6 text-text-mid font-light leading-relaxed mb-10">
+            <div className="space-y-6 text-text-mid dark:text-sand/70 font-light leading-relaxed mb-10 transition-colors duration-500">
               <p>
-                Nestled amidst lush tropical flora, Sitharom offers a sanctuary where modern elegance seamlessly intertwines with authentic island soul. Each of our exclusive villas is a private universe designed to captivate your senses and restore your spirit.
+                Tucked away in the misty Western Ghats of Old Vythiri, Sitharom offers two exclusive private pool villas — Ithal Villa and Harsham Villa — where ancient rainforest meets modern luxury. Wake up to birdsong, sip chai on your private deck, and watch the Wayanad mist roll in.
               </p>
               <p>
-                From your personal infinity pool catching the morning sun to the intuitive, invisible care of our dedicated 24/7 butler service, every detail is meticulously curated to create moments that linger long after your departure.
+                With only two villas and the entire property to yourselves, Sitharom offers something rare: complete seclusion, warm Kerala hospitality, and a genuine connection with nature that stays with you long after you leave.
               </p>
             </div>
 
             <Link 
               href="/#experience" 
-              className="text-clay border-b border-clay pb-1 text-sm uppercase tracking-widest hover:text-clay-deep hover:border-clay-deep transition-colors"
+              className="text-clay dark:text-gold border-b border-clay dark:border-gold pb-1 text-sm uppercase tracking-widest hover:text-clay-deep dark:hover:text-gold/80 hover:border-clay-deep dark:hover:border-gold/80 transition-colors duration-500"
             >
               Discover The Experience
             </Link>

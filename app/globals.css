@@ -2,16 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-bg-attractions: #FAF7F2;
+  --color-overlay-from: rgba(250, 247, 242, 0.84);
+  --color-overlay-mid: rgba(250, 247, 242, 0.72);
+  --color-overlay-to: rgba(250, 247, 242, 0.88);
+  --color-bloom: rgba(181, 69, 27, 0.04);
+  --color-glow-1: rgba(181, 69, 27, 0.03);
+  --color-glow-2: rgba(181, 69, 27, 0.02);
+  --color-quote: #5C4A3A;
+  --color-panel-bg: rgba(255, 255, 255, 0.85);
+  --color-panel-border: rgba(193, 124, 69, 0.22);
+  --color-panel-border-top: rgba(193, 124, 69, 0.35);
+  --color-card-title: #2C1F14;
+  --color-card-drive: #5C4A3A;
+}
+
+.dark {
+  --color-bg-attractions: #0d0b09;
+  --color-overlay-from: rgba(13, 11, 9, 0.84);
+  --color-overlay-mid: rgba(13, 11, 9, 0.72);
+  --color-overlay-to: rgba(13, 11, 9, 0.88);
+  --color-bloom: rgba(193, 124, 69, 0.07);
+  --color-glow-1: rgba(193, 124, 69, 0.06);
+  --color-glow-2: rgba(193, 124, 69, 0.05);
+  --color-quote: #b8a898;
+  --color-panel-bg: rgba(12, 7, 3, 0.72);
+  --color-panel-border: rgba(193, 124, 69, 0.18);
+  --color-panel-border-top: rgba(193, 124, 69, 0.3);
+  --color-card-title: #f5f0ea;
+  --color-card-drive: #a89884;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-cream text-villa-dark antialiased;
+    @apply bg-cream text-villa-dark antialiased transition-colors duration-500 dark:bg-[#120E0A] dark:text-sand;
   }
 
-  /* Make sure headings that use the display font have no bold values */
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-normal;
   }
@@ -22,3 +53,82 @@
     text-wrap: balance;
   }
 }
+
+/* ── Premium Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #2C1F14; }
+::-webkit-scrollbar-thumb { background: #B5451B; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C8633E; }
+
+/* ── Shimmer sweep keyframe (used in BookingForm CTA) ────────── */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Smooth fade-up utility ──────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+/* ── Gold shimmer text ───────────────────────────────────────── */
+.text-shimmer {
+  background: linear-gradient(90deg, #C9A96E 0%, #F0D89A 50%, #C9A96E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-sweep 3s linear infinite;
+}
+
+/* ── Glass card utility ──────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 253, 249, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+}
+
+/* ── Section divider line ────────────────────────────────────── */
+.divider-gold {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C9A96E, transparent);
+  margin: 0 auto;
+}
+
+/* ── Soft text selection ─────────────────────────────────────── */
+::selection {
+  background: rgba(181, 69, 27, 0.2);
+  color: #2C1F14;
+}
+
+/* ── Rainforest mist/fog animation ───────────────────────────── */
+@keyframes mist-drift {
+  0% {
+    transform: translate(-5%, -5%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(5%, 5%) scale(1.08);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(-5%, -5%) scale(1);
+    opacity: 0.2;
+  }
+}
+
+.animate-mist-slow {
+  animation: mist-drift 24s ease-in-out infinite;
+}
+
+.animate-mist-slow-reverse {
+  animation: mist-drift 32s ease-in-out infinite reverse;
+}
+

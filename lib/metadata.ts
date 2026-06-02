@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 const defaultMetadata = {
-  title: "Sitharom Pool Villa | Luxury Private Pool Villa Stay",
-  description: "Sitharom Pool Villa offers exclusive private pool villas with 24/7 butler service, in-villa dining, and lush tropical gardens. Book your dream retreat today.",
-  keywords: "pool villa, private villa, luxury villa stay, tropical retreat, sitharom, villa booking, pool villa holiday",
+  title: "Sitharom Resort | Luxury Private Pool Villa in Wayanad, Kerala",
+  description: "Stay at Sitharom — one of Wayanad's most exclusive private pool villa resorts near Vythiri. Only 2 villas. Perfect for couples, honeymoons & families. Book direct.",
+  keywords: "luxury pool villa wayanad, private pool villa vythiri, honeymoon resort wayanad, resort near vythiri wayanad, family pool villa kerala, romantic stay wayanad, sitharom resort",
 }
 
 export const siteMetadata: Metadata = {
@@ -14,18 +14,19 @@ export const siteMetadata: Metadata = {
     title: defaultMetadata.title,
     description: defaultMetadata.description,
     type: 'website',
-    images: ['/images/og-image.jpg'], // Using a placeholder path
+    images: ['https://sitharom.com/gallery/img9.jpeg'], // Using a real photo path of the property exterior
   },
   twitter: {
     card: 'summary_large_image',
     title: defaultMetadata.title,
     description: defaultMetadata.description,
+    images: ['https://sitharom.com/gallery/img9.jpeg'],
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: 'https://sitharom.com', // Example canonical URL
+    canonical: 'https://sitharom.com',
   },
 }

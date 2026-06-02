@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Cormorant_Garamond, Jost, Inter } from "next/font/google";
 // @ts-expect-error Typescript might fail due to manual nextjs init
 import "./globals.css";
 import { siteMetadata } from "@/lib/metadata";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import SiteLayoutWrapper from "@/components/SiteLayoutWrapper";
 
 const cormorant = Cormorant_Garamond({ 
   subsets: ["latin"], 
@@ -20,6 +18,12 @@ const jost = Jost({
   variable: '--font-jost'
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: '--font-inter'
+});
+
 export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({
@@ -31,36 +35,64 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script
+          id="theme-init"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (_) {}
+              })();
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LodgingBusiness",
-              "name": "Sitharom Pool Villa",
-              "description": "Exclusive private pool villas with 24/7 butler service.",
-              "url": "https://sitharom.com",
-              "telephone": "+1234567890",
+              "name": "Sitharom Pool Villa Resort",
+              "description": "Two exclusive private pool villas in the heart of Wayanad. Ithal Villa & Harsham Villa — each with 2 bedrooms and a private pool, nestled in the Western Ghats rainforest.",
+              "url": "https://poolvilla-resort.vercel.app",
+              "telephone": "+917306197613",
+              "email": "sitharomresort@gmail.com",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Tropical Way",
-                "addressLocality": "Bali",
-                "addressRegion": "Bali",
-                "postalCode": "80361",
-                "addressCountry": "ID"
+                "streetAddress": "Charity, Old Vythiri, Kunnathidavaka",
+                "addressLocality": "Vythiri",
+                "addressRegion": "Kerala",
+                "postalCode": "673576",
+                "addressCountry": "IN"
               },
-              "starRating": {
-                "@type": "Rating",
-                "ratingValue": "5"
-              }
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 11.6234,
+                "longitude": 76.0134
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "2"
+              },
+              "amenityFeature": [
+                { "@type": "LocationFeatureSpecification", "name": "Private Pool", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }
+              ]
             })
           }}
         />
       </head>
-      <body className={`${cormorant.variable} ${jost.variable} font-body relative text-villa-dark`}>
-        <Navbar />
-        {children}
-        <Footer />
-        <FloatingWhatsApp />
+      <body className={`${cormorant.variable} ${jost.variable} ${inter.variable} font-body relative text-villa-dark`}>
+        <SiteLayoutWrapper>
+          {children}
+        </SiteLayoutWrapper>
       </body>
     </html>
   );
